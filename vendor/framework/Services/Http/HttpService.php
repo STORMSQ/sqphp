@@ -2,7 +2,8 @@
 namespace vendor\framework\Services\Http;
 use vendor\framework\Services\Service;
 use app\controllers\Controller;
-class HttpService extends Service{
+use vendor\framework\Services\Provider;
+class HttpService extends Service implements Provider{
 
     public $controller;
     public $action;

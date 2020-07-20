@@ -1,13 +1,9 @@
 <?php
 namespace vendor\framework\Services;
-use vendor\framework\Services\Provider;
-class Service implements Provider{
+use vendor\framework\Container as App;
+class Service{
     public $app;
-    public function __construct(\vendor\framework\Container $container){
-        $this->app = $container;
-    }
-    public function run()
-    {
-        return;
+    public function __construct(App $app){
+        $this->app = $app;
     }
 }

@@ -3,7 +3,7 @@ namespace vendor\framework;
 use \vendor\framework\Services\Http\HttpService;
 class Framework extends Container{
 
-    private $service = [];
+    private $services = [];
     public function run()
     {
         
@@ -25,9 +25,6 @@ class Framework extends Container{
     {
         $this->services['HttpService'] = $this->get(HttpService::class);
         $this->services['HttpService']->run();
-        /*$c = $this->get($params['controller']);
-        $action = $params['action'];
-        $c->$action();*/
 
     }
 
