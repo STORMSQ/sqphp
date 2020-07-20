@@ -1,31 +1,20 @@
 <?php
 namespace vendor\framework;
-use \vendor\framework\Services\Http\HttpService;
+use vendor\framework\Services\Http\HttpService;
+use vendor\framework\Services\Base\LoadConfigureService;
 class Framework extends Container{
 
-    private $services = [];
+    //public $services = [];
     public function run()
     {
-        
-        $this->baseService();
-        $this->routeService();
+       $this->set('config',new LoadConfigureService($this));
+       $this->set('http',new HttpService($this));
+       //dd($this->instances);
+        //$this->services['http'] = $this->get(HttpService::class);
 
-    }
-
-    protected function baseService()
-    {
-        //load database
-       // $this->tools['db'] = $this->get(\vendor\framework\Services\Base\DatabaseService::class);
-
-       // print_r($db);
+    
     }
 
 
-    protected function routeService()
-    {
-        $this->services['HttpService'] = $this->get(HttpService::class);
-        $this->services['HttpService']->run();
-
-    }
 
 }

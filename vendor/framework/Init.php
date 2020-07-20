@@ -8,5 +8,6 @@ define("CONFIG_PATH",ROOT_PATH.'/config');
 require "Autoloader.php";
 
 Autoloader::init();
+require "Helper.php";
 $framework = new Framework();
 $framework->run();

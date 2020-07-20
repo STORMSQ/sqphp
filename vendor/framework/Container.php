@@ -8,7 +8,8 @@ class Container
 	/**
 	 * @var array
 	 */
-	protected $instances = [];
+	public  $instances = [];
+	
 	/**
 	 * @param      $abstract
 	 * @param null $concrete
@@ -53,15 +54,14 @@ class Container
 			return $concrete($this, $parameters);
 		}
 
-		$reflector = new \ReflectionClass($concrete);
+		$reflector = $this->getReflector($concrete);
+
 		// check if class is instantiable
-		//var_dump($reflector);
 		if (!$reflector->isInstantiable()) {
 			throw new \Exception("Class {$concrete} is not instantiable");
 		}
 		// get class constructor
 		$constructor = $reflector->getConstructor();
-        //var_dump($constructor);
 		if (is_null($constructor)) {
 			// get new instance from class
 			return $reflector->newInstance();
@@ -73,6 +73,11 @@ class Container
 
 		// get new instance with dependencies resolved
 		return $reflector->newInstanceArgs($dependencies);
+	}
+
+	public function getReflector($concrete)
+	{
+		return new \ReflectionClass($concrete);
 	}
 	/**
 	 * get all dependencies resolved
@@ -104,4 +109,12 @@ class Container
 		}
 		return $dependencies;
 	}
+
+	public function getInstance($instanceName)
+	{
+		return $this->instances[$instanceName];
+	}
+
+	
+
 }
