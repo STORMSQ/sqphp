@@ -1,7 +1,7 @@
 <?php
 namespace vendor\framework\Services;
 
-interface Provider{
+interface ServiceRule{
 
     public function run();
 }

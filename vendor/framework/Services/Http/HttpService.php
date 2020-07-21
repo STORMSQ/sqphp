@@ -25,7 +25,6 @@ class HttpService extends Service{
             }
           
         }
-        //dd($this->app->config);
         $method->invokeArgs($controller,$parameters);
 
     }
@@ -36,14 +35,11 @@ class HttpService extends Service{
         $document_uri = $_SERVER['DOCUMENT_URI'];
         $request_uri = $_SERVER['REQUEST_URI'];
         $request = str_replace(str_replace("/index.php","", $document_uri),"",preg_replace("/\?.+/","",$request_uri));
-        $route = $this->app->getInstance('config')->getConfig('route');
-        dd($route);
-        dd($request);
+        //$route = $this->app/*->getInstance('config')->getConfig('route')*/;
+
+        //dd($route);
     
-        
-        //dd($_SERVER);
-        /*dd($_GET);
-        dd($_POST);*/
+
         $this->controller = '\app\controllers\TestController';
         $this->action = 'index';
     }

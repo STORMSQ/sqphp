@@ -34,9 +34,13 @@ class Container
 	{
 		// if we don't have it, just register it
 		if (!isset($this->instances[$abstract])) {
-			$this->set($abstract);
+			//throw new \Exception('Instance');
+			$instance = $abstract;
+			//$this->set($abstract);
+		}else{
+			$instance = $this->instances[$abstract];
 		}
-		return $this->resolve($this->instances[$abstract], $parameters);
+		return $this->resolve($instance, $parameters);
 	}
 	/**
 	 * resolve single

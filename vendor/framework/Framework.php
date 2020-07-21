@@ -1,18 +1,25 @@
 <?php
 namespace vendor\framework;
 use vendor\framework\Services\Http\HttpService;
-use vendor\framework\Services\Base\LoadConfigureService;
+use vendor\framework\Services\Base\ConfigureService;
 class Framework extends Container{
 
     //public $services = [];
     public function run()
     {
-       $this->set('config',new LoadConfigureService($this));
-       $this->set('http',new HttpService($this));
-       //dd($this->instances);
-        //$this->services['http'] = $this->get(HttpService::class);
-
-    
+       $this->registerBasic();
+       $this->runService();
+       dd($this);
+    }
+    public function registerBasic()
+    {
+        $this->set('config',new ConfigureService($this));
+        $this->set('http',new HttpService($this));
+    }
+    public function runService()
+    {
+        //dd($this->get('http'));
+        $this->get('http')->run();
     }
 
 

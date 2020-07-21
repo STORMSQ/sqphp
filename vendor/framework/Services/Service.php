@@ -1,15 +1,15 @@
 <?php
 namespace vendor\framework\Services;
-use vendor\framework\Framework as App;
+use vendor\framework\Container as App;
 
 class Service{
     public $app;
     public function __construct(App $app)
     {
         $this->app = $app;
-        $this->run();
+        $this->create();
     }
-    public function run()
+    public function create()
     {
         return ;
     }

@@ -1,27 +1,23 @@
 <?php
 namespace vendor\framework\Services\Base;
 use vendor\framework\Services\Service;
+use vendor\framework\Services\ServiceRule;
 use vendor\framework\Framework as App;
-class LoadConfigureService extends Service{
+class ConfigureService extends Service implements ServiceRule{
 
-    private $config;
+    protected $config;
+    public function create()
+    {
+        
+        include(ROOT_PATH.'/route/Route.php');
+        include(CONFIG_PATH.'/database.php');
+        $this->setConfig('route',$route);
+        $this->setConfig('database',$db);
 
+    }
     public function run()
     {
-       $this->getRouteList(); 
-       $this->getDatabaseConfig();
 
-    }
-    public function getRouteList()
-    {
-        include(ROOT_PATH.'/route/Route.php');
-
-        $this->setConfig('route',$route);
-    }
-    public function getDatabaseConfig()
-    {
-        include(CONFIG_PATH.'/database.php');
-        $this->setConfig('database',$db);
     }
     public function setConfig($name,$value)
     {
