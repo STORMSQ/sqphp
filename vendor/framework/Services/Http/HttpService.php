@@ -35,9 +35,9 @@ class HttpService extends Service{
         $document_uri = $_SERVER['DOCUMENT_URI'];
         $request_uri = $_SERVER['REQUEST_URI'];
         $request = str_replace(str_replace("/index.php","", $document_uri),"",preg_replace("/\?.+/","",$request_uri));
-        //$route = $this->app/*->getInstance('config')->getConfig('route')*/;
+        $route = $this->app->getInstance('config')->getConfig('route');
 
-        //dd($route);
+        dd($route);
     
 
         $this->controller = '\app\controllers\TestController';
