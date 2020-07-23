@@ -3,20 +3,13 @@ namespace vendor\framework\Services\Base;
 use vendor\framework\Services\Service;
 use vendor\framework\Services\ServiceRule;
 use vendor\framework\Framework as App;
-class ConfigureService extends Service implements ServiceRule{
+class ConfigureService extends Service{
 
     protected $config;
     public function create()
     {
-        
-        include(ROOT_PATH.'/route/Route.php');
-        include(CONFIG_PATH.'/database.php');
-        $this->setConfig('route',$route);
-        $this->setConfig('database',$db);
-
-    }
-    public function run()
-    {
+        $this->setConfig('route',include(ROOT_PATH.'/route/Route.php'));
+        $this->setConfig('database',include(CONFIG_PATH.'/database.php'));
 
     }
     public function setConfig($name,$value)

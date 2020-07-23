@@ -8,7 +8,11 @@ class Service{
     {
         $this->app = $app;
         
+        if(is_callable([$this,'create'])){
+            $this->create();
+        }
+        
     }
-    
 
+    
 }

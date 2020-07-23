@@ -4,16 +4,14 @@ use vendor\framework\Services\Service;
 use app\controllers\Controller;
 class HttpService extends Service{
 
-    public $controller;
-    public $action;
-    public $route = [];
+
     public function run()
     {
     
-        $this->parseURL();
-        $controller = $this->app->get($this->controller);
+        $parser = $this->parseURL();
+        $controller = $this->app->get($parser['controller']);
         
-        $method = $this->app->getReflector($this->controller)->getMethod($this->action);
+        $method = $this->app->getReflector($parser['controller'])->getMethod($parser['action']);
         
         $parameters = [];
         foreach($method->getParameters() as $param){
@@ -32,16 +30,19 @@ class HttpService extends Service{
 
     public function parseURL()
     {
+        $parser['controller']=null;
+        $parser['action']=null;
         $document_uri = $_SERVER['DOCUMENT_URI'];
         $request_uri = $_SERVER['REQUEST_URI'];
         $request = str_replace(str_replace("/index.php","", $document_uri),"",preg_replace("/\?.+/","",$request_uri));
         $route = $this->app->getInstance('config')->getConfig('route');
 
-        dd($route);
+        //dd($route);
     
 
-        $this->controller = '\app\controllers\TestController';
-        $this->action = 'index';
+        $parser['controller'] = '\app\controllers\TestController';
+        $parser['action'] = 'index';
+        return $parser;
     }
   
 }

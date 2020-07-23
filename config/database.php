@@ -1,6 +1,6 @@
 <?php
 namespace config;
-    $db = [
+    return [
         'db_host'=>'localhost',
         'db_name'=>'demo',
         'db_user'=>'sten',
