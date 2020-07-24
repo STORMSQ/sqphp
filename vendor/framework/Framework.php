@@ -9,8 +9,7 @@ class Framework extends Container{
         $ServicesList = require(SERVICES_PATH.'/ServiceList.php');
         foreach($ServicesList as $name=>$service){
              $this->set($name, new $service($this));
-        }
-       
+        }      
     }
     public function run()
     {
