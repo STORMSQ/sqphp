@@ -118,6 +118,10 @@ class Container
 	{
 		return $this->instances[$instanceName];
 	}
+	public static function getContainer()
+	{
+		return new self;
+	}
 
 	
 

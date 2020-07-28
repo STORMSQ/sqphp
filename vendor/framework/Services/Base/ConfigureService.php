@@ -1,7 +1,6 @@
 <?php
 namespace vendor\framework\Services\Base;
 use vendor\framework\Services\Service;
-use vendor\framework\Services\ServiceRule;
 use vendor\framework\Framework as App;
 class ConfigureService extends Service{
 
@@ -19,6 +18,10 @@ class ConfigureService extends Service{
     public function getConfig($configName)
     {
         return $this->config[$configName];
+    }
+    public function getAllConfig()
+    {
+        return $this->config;
     }
 
 }

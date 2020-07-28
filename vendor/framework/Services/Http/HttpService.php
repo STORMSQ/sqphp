@@ -30,16 +30,33 @@ class HttpService extends Service{
 
     public function parseURL()
     {
+        //dump($_SERVER);
         $parser['controller']=null;
         $parser['action']=null;
         $document_uri = $_SERVER['DOCUMENT_URI'];
         $request_uri = $_SERVER['REQUEST_URI'];
+        $request_method = $_SERVER['REQUEST_METHOD'];
         $request = str_replace(str_replace("/index.php","", $document_uri),"",preg_replace("/\?.+/","",$request_uri));
-        $route = $this->app->getInstance('config')->getConfig('route');
+        
+        $detail = $this->getRoute($request);
 
-        $parser['controller'] = '\app\controllers\TestController';
-        $parser['action'] = 'index';
+        if($detail==null){
+            throw new \Exception("找不到Controller");
+        }
+        if(strtoupper($detail['method'])!=$request_method){
+            throw new \Exception("該提交方法與路由表的提交方式不同");
+        }
+        $parser['controller'] = '\app\controllers\\'.$detail['controller'];
+        $parser['action'] = $detail['action'];
         return $parser;
+    }
+    private function getRoute($request)
+    {
+        foreach(config('route') as $row){
+            if(count(array_diff(['controller','url','action','method'],array_keys($row)))==0 && array_search($request,$row)){
+                return $row;
+            }
+        }
     }
   
 }
