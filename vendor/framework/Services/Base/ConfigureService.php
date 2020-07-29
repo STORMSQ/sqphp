@@ -9,7 +9,6 @@ class ConfigureService extends Service{
     {
         $this->setConfig('route',include(ROOT_PATH.'/route/Route.php'));
         $this->setConfig('database',include(CONFIG_PATH.'/database.php'));
-
     }
     public function setConfig($name,$value)
     {

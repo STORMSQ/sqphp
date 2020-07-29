@@ -59,11 +59,6 @@ class Container
 		}
 
 		$reflector = $this->getReflector($concrete);
-
-		// check if class is instantiable
-		if (!$reflector->isInstantiable()) {
-			throw new \Exception("Class {$concrete} is not instantiable");
-		}
 		// get class constructor
 		$constructor = $reflector->getConstructor();
 		if (is_null($constructor)) {
@@ -78,10 +73,36 @@ class Container
 		// get new instance with dependencies resolved
 		return $reflector->newInstanceArgs($dependencies);
 	}
+	public function method($concrete,$method,$parameter=[])
+	{
+		$method  = $this->getReflector($concrete)->getMethod($method);
+		
+		$notClassParameter = 0;
+		$parameters = [];
+		foreach($method->getParameters() as $key=>$param){
+			
+            if($param->getClass()){
+                $parameters[$key] = $this->get($param->getClass()->name);
+            }else{
+                $parameters[$key] =null;
+                if(isset($parameter[$notClassParameter])){
+                    $parameters[$key] = $parameter[$notClassParameter];
+                    $notClassParameter++;
+                }
+            }
+          
+		}
+        $method->invokeArgs($this->get($concrete),$parameters);
+	}
 
 	public function getReflector($concrete)
 	{
-		return new \ReflectionClass($concrete);
+		$reflector = new \ReflectionClass($concrete);
+		// check if class is instantiable
+		if (!$reflector->isInstantiable()) {
+			throw new \Exception("Class {$concrete} is not instantiable");
+		}
+		return $reflector;
 	}
 	/**
 	 * get all dependencies resolved

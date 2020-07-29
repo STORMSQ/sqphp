@@ -8,8 +8,10 @@ class TestController extends Controller{
         echo '控制器方法';
         $demo->test();
     }
-    public function action(Demo $demo)
+    public function action(Demo $demo,$a)
     {
-        echo 'action方法';
+        echo 'action方法<br>';
+        echo $a;
+
     }
 }

@@ -29,3 +29,7 @@ function config($configName)
 {
     return app(\vendor\framework\Services\Base\ConfigureService::class)->getConfig($configName);
 }
+function db()
+{
+    
+}

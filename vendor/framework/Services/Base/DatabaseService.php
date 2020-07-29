@@ -1,14 +1,7 @@
 <?php
 namespace vendor\framework\Services\Base;
+use vendor\framework\Services\Service;
+class DatabaseService extends Service{
 
-class DatabaseService {
 
-    public function __construct()
-    {
-        return $this;
-    }
-    public function insert()
-    {
-       
-    }
 }
