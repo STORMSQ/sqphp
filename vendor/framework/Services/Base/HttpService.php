@@ -1,5 +1,5 @@
 <?php
-namespace vendor\framework\Services\Http;
+namespace vendor\framework\Services\Base;
 use vendor\framework\Services\Service;
 class HttpService extends Service{
 

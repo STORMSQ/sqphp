@@ -7,7 +7,6 @@ define("CONFIG_PATH",ROOT_PATH.'/config');
 define("CONTROLLER_PATH",ROOT_PATH.'/app/controllers');
 define("SERVICES_PATH",FRAMEWORK_PATH.'/Services');
 require "Autoloader.php";
-
 Autoloader::init();
 require "Helper.php";
 $framework = new Framework();
