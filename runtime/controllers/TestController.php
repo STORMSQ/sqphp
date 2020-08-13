@@ -1,5 +1,5 @@
 <?php
-namespace runtime\controllers;
+namespace RunTime\controllers;
 class TestController extends Controller
 {
     public function index(Demo $demo)

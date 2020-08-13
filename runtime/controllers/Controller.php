@@ -1,5 +1,5 @@
 <?php
-namespace runtime\controllers;
+namespace RunTime\controllers;
 abstract class Controller {
 
 }

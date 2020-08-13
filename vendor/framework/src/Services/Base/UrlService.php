@@ -22,7 +22,7 @@ class UrlService extends Service{
         if (strtoupper($detail['method'])!=$request_method) {
             throw new \Exception("該提交方法與路由表的提交方式不同");
         }
-        $parser['controller'] = '\runtime\controllers\\'.$detail['controller'];
+        $parser['controller'] = '\RunTime\controllers\\'.$detail['controller'];
         $parser['action'] = $detail['action'];
 
         $i=0;

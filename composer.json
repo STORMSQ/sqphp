@@ -13,9 +13,10 @@
     "require": {},
     "autoload":{
         "psr-4": {
-            "RunTime\\":"runtime",
-            "Framework\\":"vendor/framework/src"
+            "Framework\\":"vendor/framework/src",
+            "RunTime\\":"runtime/"
             
         }
+
     }
 }
