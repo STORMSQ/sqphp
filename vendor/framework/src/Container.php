@@ -1,5 +1,5 @@
 <?php
-namespace vendor\framework;
+namespace Framework;
 /**
  * Class Container
  */
@@ -75,6 +75,7 @@ class Container
 	}
 	public function method($concrete,$method,$parameter=[])
 	{
+		
 		$method  = $this->getReflector($concrete)->getMethod($method);
 		
 		$notClassParameter = 0;

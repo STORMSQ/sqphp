@@ -1,7 +1,6 @@
 <?php
-namespace vendor\framework;
-use vendor\framework\Services\Http\HttpService;
-use vendor\framework\Services\Base\ConfigureService;
+namespace Framework;
+use Framework\Container;
 class Framework extends Container{
 
     /**
@@ -22,6 +21,8 @@ class Framework extends Container{
     public function run()
     {
         $parser = $this->getInstance('url')->parseURL();
+
+        
         $this->getInstance('http')->run($parser);
     }
 

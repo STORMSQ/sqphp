@@ -1,6 +1,6 @@
 <?php
-namespace vendor\framework\Services\Base;
-use vendor\framework\Services\Service;
+namespace Framework\Services\Base;
+use Framework\Services\Service;
 class Model extends Service{
 
     public function connect()

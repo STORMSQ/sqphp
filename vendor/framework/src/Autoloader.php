@@ -1,5 +1,5 @@
 <?php
-namespace vendor\framework;
+namespace Framework;
 class Autoloader{
 
     private static $loader;
@@ -10,8 +10,7 @@ class Autoloader{
     
     public function import($className)
     {
-        
-        
+            
         $path = explode("\\",$className);
         $filePath =  ROOT_PATH . DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, $path) . '.php';
         if(is_file($filePath)){

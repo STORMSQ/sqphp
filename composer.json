@@ -1,0 +1,21 @@
+{
+    "name": "stormsq/sqphp",
+    "description": "Learning PHP Framework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Weishiang Liao",
+            "email": "liao91826@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload":{
+        "psr-4": {
+            "RunTime\\":"runtime",
+            "Framework\\":"vendor/framework/src"
+            
+        }
+    }
+}

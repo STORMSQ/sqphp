@@ -1,7 +1,7 @@
 <?php
-namespace vendor\framework\Services\Base;
-use vendor\framework\Services\Service;
-use vendor\framework\Framework as App;
+namespace Framework\Services\Base;
+use Framework\Services\Service;
+use Framework\Framework as App;
 class ConfigureService extends Service{
 
     protected $config;

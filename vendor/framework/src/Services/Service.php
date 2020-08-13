@@ -1,6 +1,6 @@
 <?php
-namespace vendor\framework\Services;
-use vendor\framework\Container as App;
+namespace Framework\Services;
+use Framework\Container as App;
 
 class Service{
     public $app;

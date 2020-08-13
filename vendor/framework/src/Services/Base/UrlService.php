@@ -1,9 +1,7 @@
 <?php
-namespace vendor\framework\Services\Base;
-use vendor\framework\Services\Service;
+namespace Framework\Services\Base;
+use Framework\Services\Service;
 class UrlService extends Service{
-
-
     
     public function parseURL()
     {
@@ -24,8 +22,7 @@ class UrlService extends Service{
         if (strtoupper($detail['method'])!=$request_method) {
             throw new \Exception("該提交方法與路由表的提交方式不同");
         }
-
-        $parser['controller'] = '\app\controllers\\'.$detail['controller'];
+        $parser['controller'] = '\runtime\controllers\\'.$detail['controller'];
         $parser['action'] = $detail['action'];
 
         $i=0;

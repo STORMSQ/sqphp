@@ -1,5 +1,5 @@
 <?php
-use vendor\framework\Container;
+use Framework\Container;
 
 function D(){
 
@@ -27,7 +27,7 @@ function app($applicationName)
 }
 function config($configName)
 {
-    return app(\vendor\framework\Services\Base\ConfigureService::class)->getConfig($configName);
+    return app(Framework\Services\Base\ConfigureService::class)->getConfig($configName);
 }
 function db()
 {
