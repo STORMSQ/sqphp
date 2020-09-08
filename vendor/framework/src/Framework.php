@@ -21,8 +21,6 @@ class Framework extends Container{
     public function run()
     {
         $parser = $this->getInstance('url')->parseURL();
-
-        
         $this->getInstance('http')->run($parser);
     }
 
