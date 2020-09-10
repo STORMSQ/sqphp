@@ -20,8 +20,7 @@ class Framework extends Container{
      */
     public function run()
     {
-        $parser = $this->getInstance('url')->parseURL();
-        $this->getInstance('http')->run($parser);
+        $this->getInstance('http')->run($this->getInstance('url')->parseURL());
     }
 
 
