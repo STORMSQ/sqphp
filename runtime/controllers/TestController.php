@@ -12,4 +12,9 @@ class TestController extends Controller
         echo 'action方法<br>';
         echo $a;
     }
+    public function action2()
+    {
+        echo 'aaaaaaaa';
+    }
+    
 }
