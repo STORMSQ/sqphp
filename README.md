@@ -39,7 +39,7 @@ url屬性是restful的格式，代表資源的訪問路徑，例如：
 'url'=>'/controller/action'
 ```
 
-controller是指要使用哪個控制器，控制器的位置須放置在runtime/controllers下
+controller指要使用哪個控制器
 
 ```php
 'controller'=>'TestController'
@@ -51,7 +51,25 @@ action是指要使用controller下的哪個方法
 'action'=>'index'
 ```
 
-所以，以上述控制器和url結合為例，該控制器應該如下(TestController)：
+method是提交的方式，如GET或POST
+
+```php
+'method'=>'get'
+```
+
+
+
+# 定義控制器
+
+控制器位置在runtime/controllers裡，控制器的位置必需放置在runtime/controllers下。
+
+假設路由定義為
+
+```php
+['url'=>'/controller/action','controller'=>'TestController','action'=>'index','method'=>'get'],
+```
+
+你需要在目錄下建立TestController，且擁有index方法，因此具體控制器類如下
 
 ```php
 <?php
